@@ -1,0 +1,14 @@
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        start_index=0  
+        i=len(s)-1
+        for i in range(len(s)-1,-1,-1):          
+            if s[i]==s[start_index] and i==0:   #for a single char in the string
+                return 1
+            elif i==0 and s[i]!=' ':
+                return len(s[i:start_index+1])
+            elif s[i]==' ' and start_index!=0:
+                return len((s[i+1:start_index+1]))  # get all the chars of the last word of the string
+            elif s[i]!=' 'and start_index==0:       
+                start_index=i         #encounter the first char in the string
+  
